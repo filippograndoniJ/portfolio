@@ -1,6 +1,5 @@
 :root {
   --primary: #1e90ff;
-  --primary-dark: #0066cc;
   --primary-light: #e6f2ff;
   --accent: #ff7f50;
   --text: #1a1a1a;
@@ -23,14 +22,15 @@ body {
 
 /* ========== HEADER & NAV ========== */
 .header {
-  padding: 3rem 1rem 3.75rem;
+  padding: 3rem 1rem 2rem;
   background: linear-gradient(180deg, var(--primary-light), var(--bg));
 }
 .header .top {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1.1rem;
+  gap: 1rem;
+  padding-bottom: 3rem; /* spazio extra tra header e nav */
 }
 .avatar {
   width: 100px;
@@ -56,7 +56,7 @@ nav {
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-top: 2rem;
+  margin-top: 2rem;  /* distanza extra */
 }
 nav a {
   text-decoration: none;
@@ -119,7 +119,6 @@ main {
   margin-bottom: 2.2rem;
 }
 
-/* extra breathing room for the last sections */
 #skills { padding-bottom: 8rem; }
 #contact { padding: 10rem 1rem 11rem; }
 
@@ -138,16 +137,12 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 360px;
 }
 .card h4 {
   margin-top: 0;
   color: var(--primary);
 }
-.card p { 
-  color: #333; 
-  flex-grow: 1;
-}
+.card p { color: #333; }
 
 .tags {
   list-style: none;
@@ -166,40 +161,66 @@ main {
   font-weight: 600;
 }
 
+/* ========== BUTTONS (Details / Theoretical) ========== */
 .links {
   display: flex;
-  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   margin-top: 1rem;
 }
-.bottom-link {
-  margin-top: auto;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-}
-
-.details-btn {
+.links .details-btn {
   display: inline-block;
   background: var(--primary);
   color: #fff;
-  padding: 0.5rem 0.9rem;
+  padding: 0.45rem 0.85rem;
   border-radius: 10px;
   font-weight: 600;
   font-size: 0.92rem;
   text-decoration: none;
   transition: background 0.3s ease;
 }
-.details-btn:hover {
-  background: var(--primary-dark);
+.links .details-btn:hover {
+  background: #0066cc;
   color: #fff;
 }
 
-/* meta text */
-.meta {
-  display: block;
-  font-size: 0.9rem;
-  color: var(--muted);
-  margin-bottom: 0.6rem;
+/* ========== BADGES (Competitions) ========== */
+.badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 0.18rem 0.55rem;
+  font-size: 0.78rem;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: .2px;
+  border-radius: 999px;
+  background: #eef2f7;
+  color: #334155;
+  vertical-align: middle;
+  border: 1px solid #e5e7eb;
+}
+.badge.gold {
+  background: #fff7e6;
+  color: #b45309;
+  border-color: #f6e3c4;
+  box-shadow: 0 0 0 2px rgba(255,184,0,0.08) inset;
+}
+.badge.success {
+  background: #eafaf1;
+  color: #166534;
+  border-color: #cceedd;
+  box-shadow: 0 0 0 2px rgba(16,185,129,0.08) inset;
+}
+.badge.info {
+  background: #e6f2ff;
+  color: #1e40af;
+  border-color: #d0e4ff;
+  box-shadow: 0 0 0 2px rgba(30,144,255,0.08) inset;
+}
+.badge.grade {
+  background: #f0f9ff;
+  color: #0c4a6e;
+  border-color: #cfeaff;
 }
 
 /* ========== TIMELINE / EXPERIENCE ========== */
@@ -266,7 +287,6 @@ main {
 }
 .skill-bullets b { color: var(--primary); }
 
-/* languages */
 .lang-list {
   list-style: disc;
   padding-left: 1.4rem;
@@ -275,7 +295,6 @@ main {
 }
 .lang-list li { margin: 0.25rem 0; }
 
-/* chips */
 .chiplist {
   list-style: none;
   padding: 0;
@@ -293,21 +312,7 @@ main {
   font-weight: 600;
 }
 
-/* legacy skills */
-.skills {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  color: #333;
-  text-align: left;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.skills li { margin-bottom: 0.8rem; }
-.skills b { color: var(--primary); }
-
-/* ========== CONTACT ========== */
+/* ========== CONTACT SECTION ========== */
 .contact-section {
   background:
     radial-gradient(80% 120% at 50% -10%, var(--primary-light), transparent 60%),
@@ -324,7 +329,6 @@ main {
 @media (min-width: 760px) {
   .contact-grid { grid-template-columns: repeat(3, 1fr); }
 }
-
 .contact-card {
   display: flex;
   align-items: center;
@@ -366,7 +370,6 @@ main {
   color: #333;
 }
 
-/* old contact block */
 .contact-block h3 {
   color: var(--primary);
   margin-bottom: 1rem;
@@ -387,43 +390,4 @@ main {
   font-size: 0.9rem;
   text-align: center;
   margin-top: 0.5rem;
-}
-
-/* ========== BADGES ========== */
-.badge {
-  display: inline-block;
-  margin-left: 8px;
-  padding: 0.18rem 0.55rem;
-  font-size: 0.78rem;
-  line-height: 1;
-  font-weight: 800;
-  letter-spacing: .2px;
-  border-radius: 999px;
-  background: #eef2f7;
-  color: #334155;
-  vertical-align: middle;
-  border: 1px solid #e5e7eb;
-}
-.badge.gold {
-  background: #fff7e6;
-  color: #b45309;
-  border-color: #f6e3c4;
-  box-shadow: 0 0 0 2px rgba(255,184,0,0.08) inset;
-}
-.badge.success {
-  background: #eafaf1;
-  color: #166534;
-  border-color: #cceedd;
-  box-shadow: 0 0 0 2px rgba(16,185,129,0.08) inset;
-}
-.badge.info {
-  background: #e6f2ff;
-  color: #1e40af;
-  border-color: #d0e4ff;
-  box-shadow: 0 0 0 2px rgba(30,144,255,0.08) inset;
-}
-.badge.grade {
-  background: #f0f9ff;
-  color: #0c4a6e;
-  border-color: #cfeaff;
 }
