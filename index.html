@@ -16,21 +16,21 @@
   <link rel="stylesheet" href="styles.css" />
   <style>
     :root {
-      --bg-color: #f8f9fa;
-      --text-color: #222;
-      --primary-color: #0d6efd;
+      --bg-color: #f9fafb;
+      --text-color: #1f1f1f;
+      --primary-color: #1a73e8;
       --secondary-color: #6c757d;
-      --accent-color: #20c997;
+      --accent-color: #1abc9c;
       --card-bg: #ffffff;
-      --border-color: #dee2e6;
+      --border-color: #e2e6ea;
     }
     body {
       background-color: var(--bg-color);
       color: var(--text-color);
       font-family: 'Inter', sans-serif;
-      text-align: center;
       margin: 0;
       padding: 0;
+      text-align: center;
     }
     .container {
       max-width: 900px;
@@ -39,39 +39,69 @@
     }
     header.header {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      flex-wrap: wrap;
       border-bottom: 1px solid var(--border-color);
       padding-bottom: 1rem;
+      text-align: center;
     }
     .brand {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 1rem;
+      gap: 0.5rem;
     }
     .brand img.avatar {
-      width: 80px;
-      height: 80px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary-color);
+    }
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 0;
+      color: var(--primary-color);
+    }
+    .subtitle {
+      color: var(--secondary-color);
+      font-size: 0.95rem;
+    }
+    .nav {
+      margin-top: 1rem;
     }
     .nav a {
-      margin: 0 0.5rem;
+      margin: 0 0.7rem;
       text-decoration: none;
       color: var(--primary-color);
       font-weight: 600;
+      transition: color 0.2s ease;
+    }
+    .nav a:hover {
+      color: var(--accent-color);
     }
     .btn {
       background: var(--primary-color);
       color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
       text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      margin: 0.4rem;
+      transition: background 0.2s ease;
     }
+    .btn:hover { background: #0c5adf; }
     .btn.ghost {
       background: transparent;
       color: var(--primary-color);
-      border: 1px solid var(--primary-color);
+      border: 1.5px solid var(--primary-color);
+    }
+    .btn.ghost:hover {
+      background: var(--primary-color);
+      color: white;
     }
     section.section {
       margin-top: 3rem;
@@ -80,6 +110,7 @@
     .section-head h3 {
       color: var(--primary-color);
       margin-bottom: 0.5rem;
+      font-size: 1.4rem;
     }
     .grid {
       display: grid;
@@ -88,15 +119,22 @@
     .card {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      border-radius: 8px;
+      border-radius: 10px;
       padding: 1.5rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
     }
     .timeline .item {
       background: var(--card-bg);
       padding: 1rem;
       margin-bottom: 1rem;
       border-left: 4px solid var(--primary-color);
+      border-radius: 6px;
+    }
+    .item-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.5rem;
     }
     footer.footer {
       margin-top: 2rem;
@@ -110,15 +148,13 @@
   <header class="container header">
     <div class="brand">
       <img src="assets/avatar.jpg" alt="Profile photo" class="avatar" />
-      <div>
-        <h1>Filippo Grandoni</h1>
-        <p class="subtitle">MSc Statistics (Statistical Finance) · Imperial College London</p>
-      </div>
+      <h1>Filippo Grandoni</h1>
+      <p class="subtitle">MSc Statistics (Statistical Finance) · Imperial College London</p>
     </div>
     <nav class="nav">
       <a href="#practical">Practical</a>
       <a href="#theoretical">Theoretical</a>
-      <a href="#work">Work</a>
+      <a href="#experience">Working Experience</a>
       <a href="#volunteering">Volunteering</a>
       <a href="#skills">Skills</a>
       <a href="#contact" class="btn">Contact</a>
@@ -127,11 +163,50 @@
 
   <main>
     <section class="container hero">
-      <h2>Turning data into insight.</h2>
-      <p>Focused on statistical learning, market structure, and systematic approaches — with a clean, structured, and practical mindset.</p>
+      <h2 style="font-size:2rem; font-weight:700; color:var(--text-color);">Turning data into insight.</h2>
+      <p style="color:var(--secondary-color); max-width:700px; margin:0 auto;">
+        Focused on statistical learning, market structure, and systematic approaches — with a clean, structured, and practical mindset.
+      </p>
       <div class="cta">
         <a class="btn" href="assets/CV.pdf" target="_blank" rel="noopener">Download CV</a>
         <a class="btn ghost" href="#practical">See Work</a>
+      </div>
+    </section>
+
+    <!-- WORK EXPERIENCE -->
+    <section id="experience" class="container section">
+      <div class="section-head"><h3>Working Experience</h3></div>
+      <div class="timeline">
+        <div class="item">
+          <div class="item-head">
+            <strong>UBS — Quant Project (FX)</strong>
+            <span>Zurich · 2024</span>
+          </div>
+          <ul>
+            <li>Designed and backtested a hedged FX carry strategy across regimes; integrated transaction costs and basis dynamics.</li>
+            <li>Built data ingestion & validation (FX & rates), scenario analysis and stress testing for funding & volatility spikes.</li>
+          </ul>
+        </div>
+        <div class="item">
+          <div class="item-head">
+            <strong>Finlabo SIM — Quant Research</strong>
+            <span>Ancona · 2023</span>
+          </div>
+          <ul>
+            <li>Developed Python algorithms to track ETF primary/secondary flows and correlation surfaces.</li>
+            <li>Authored research briefs used by the investment team for positioning and risk review.</li>
+          </ul>
+        </div>
+        <div class="item">
+          <div class="item-head">
+            <strong>Imperial College London — MSc Statistics (Statistical Finance)</strong>
+            <span>London · 2025–2026</span>
+          </div>
+          <ul>
+            <li>Core: probability, time-series, econometrics, ML, stochastic processes, optimisation.</li>
+            <li>Focus: systematic strategies, market microstructure, Bayesian methods.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
