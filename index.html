@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Filippo Grandoni · Portfolio</title>
   <meta name="description" content="Quant-focused portfolio showcasing projects, writing, and experience." />
-  <!-- Open Graph -->
   <meta property="og:title" content="Filippo Grandoni · Portfolio" />
   <meta property="og:description" content="Quant-focused portfolio showcasing projects, writing, and experience." />
   <meta property="og:type" content="website" />
@@ -22,12 +21,14 @@
       <img src="assets/avatar.jpg" alt="Profile photo" class="avatar" />
       <div>
         <h1>Filippo Grandoni</h1>
-        <p class="subtitle">MSc Statistics (Statistical Finance) @ Imperial · Quant Research</p>
+        <p class="subtitle">MSc Statistics (Statistical Finance), Imperial College London · Quant Research</p>
       </div>
     </div>
     <nav class="nav">
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
+      <a href="#practical">Practical</a>
+      <a href="#theoretical">Theoretical</a>
+      <a href="#work">Work</a>
+      <a href="#volunteering">Volunteering</a>
       <a href="#skills">Skills</a>
       <a href="#writing">Writing</a>
       <a href="#contact" class="btn">Contact</a>
@@ -44,110 +45,169 @@
       </p>
       <div class="cta">
         <a class="btn" href="assets/CV.pdf" target="_blank" rel="noopener">Download CV</a>
-        <a class="btn ghost" href="#projects">See Projects</a>
+        <a class="btn ghost" href="#practical">See Work</a>
       </div>
     </section>
 
-    <!-- Projects -->
-    <section id="projects" class="container section">
+    <!-- PRACTICAL PROJECTS & COMPETITIONS -->
+    <section id="practical" class="container section">
       <div class="section-head">
-        <h3>Selected Projects</h3>
-        <p class="section-sub">A few things I built or analyzed recently.</p>
+        <h3>Practical Projects & Competitions</h3>
+        <p class="section-sub">Hands-on, data-driven work and coding challenges.</p>
       </div>
       <div class="grid">
-        <!-- CARD 1 -->
         <article class="card">
-          <h4>FX Carry (Hedged) Strategy</h4>
-          <p>Python backtest across regimes; forward-hedged carry, risk filters, and transaction costs. Sharpe improvement post-hedge; robust in low-volatility regimes.</p>
+          <h4>FX Carry (Hedged) Strategy — full backtest</h4>
+          <p>Forward-hedged carry with transaction costs, regime filters and risk controls; robust in low-vol regimes and resilient to funding spread shocks.</p>
           <ul class="tags"><li>Python</li><li>Pandas</li><li>Backtesting</li><li>FX</li></ul>
           <div class="links">
-            <a href="#" aria-label="Project repo">Repo</a>
-            <a href="#" aria-label="PDF write-up">Paper</a>
+            <a href="assets/ubs_fx_hedged.pdf" target="_blank" rel="noopener">Project Summary (PDF)</a>
           </div>
         </article>
-        <!-- CARD 2 -->
+
         <article class="card">
-          <h4>ETF Flow Tracker</h4>
-          <p>Automated pipeline to infer primary/secondary market flows and correlation surfaces; alerts for anomalies and liquidity signals.</p>
+          <h4>ETF Flow Tracker & Correlation Monitor</h4>
+          <p>Automated pipeline to infer primary/secondary flows; correlation surfaces and anomaly alerts used by the investment team.</p>
           <ul class="tags"><li>Python</li><li>SQL</li><li>Dash</li></ul>
           <div class="links">
-            <a href="#" aria-label="Project repo">Repo</a>
-            <a href="#" aria-label="Live demo">Demo</a>
+            <a href="#" aria-label="Repo">Repo (private / on request)</a>
           </div>
         </article>
-        <!-- CARD 3 -->
+
         <article class="card">
-          <h4>Vol Regime Switcher</h4>
-          <p>Markov regime model for realized/IV spread; allocates between carry and convexity. Improves downside vs naive carry.</p>
-          <ul class="tags"><li>R</li><li>Time Series</li><li>ML</li></ul>
+          <h4>Python Optimisation Challenge — non-convex functions</h4>
+          <p>Compared global/local heuristics on non-convex landscapes; reproducible benchmarking and profiling.</p>
+          <ul class="tags"><li>Python</li><li>Optimisation</li><li>Benchmarking</li></ul>
           <div class="links">
-            <a href="#" aria-label="Project repo">Repo</a>
-            <a href="#" aria-label="PDF write-up">Notes</a>
+            <a href="#" aria-label="Report">Report (on request)</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h4>Credit Rating Prediction — ML mini-challenge</h4>
+          <p>End-to-end pipeline: feature engineering, model selection, calibration; analysis of stability vs. accuracy trade-offs.</p>
+          <ul class="tags"><li>Python</li><li>Sklearn</li><li>XGBoost</li></ul>
+          <div class="links">
+            <a href="#" aria-label="Notebook">Notebook (on request)</a>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- Experience -->
-    <section id="experience" class="container section">
+    <!-- THEORETICAL PROJECTS -->
+    <section id="theoretical" class="container section">
       <div class="section-head">
-        <h3>Experience</h3>
+        <h3>Theoretical Projects</h3>
+        <p class="section-sub">Research-style work, methods and models.</p>
       </div>
+      <div class="grid">
+        <article class="card">
+          <h4>Bayesian Non-parametric IV Surface</h4>
+          <p>Dirichlet-Process mixture + clusterwise linear tilt to predict implied volatility with uncertainty bands; outperforms SVI/Heston in wings and coverage.</p>
+          <ul class="tags"><li>BNP</li><li>DP Mixtures</li><li>Options</li></ul>
+          <div class="links">
+            <a href="assets/final_dissertation.pdf" target="_blank" rel="noopener">Dissertation (PDF)</a>
+            <a href="assets/thesis_fair_slides.pdf" target="_blank" rel="noopener">Slides</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h4>FX Carry (Hedged) — UBS Final Project</h4>
+          <p>Formalised parity assumptions, funding dynamics and hedge slippage; sensitivity to basis, rollover and liquidity regimes.</p>
+          <ul class="tags"><li>FX</li><li>Risk</li><li>Backtesting</li></ul>
+          <div class="links">
+            <a href="assets/ubs_fx_hedged.pdf" target="_blank" rel="noopener">Technical Note (PDF)</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h4>Volatility Regime Switching</h4>
+          <p>Markov Regime model on realised vs. implied spreads; allocation between carry and convexity to reduce left-tail exposure.</p>
+          <ul class="tags"><li>Time Series</li><li>R</li></ul>
+          <div class="links">
+            <a href="#" aria-label="Notes">Notes (on request)</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- WORK EXPERIENCE -->
+    <section id="work" class="container section">
+      <div class="section-head"><h3>Work Experience</h3></div>
       <div class="timeline">
         <div class="item">
           <div class="item-head">
-            <strong>UBS · Quant Project (FX)</strong>
+            <strong>UBS — Quant Project (FX)</strong>
             <span>Zurich · 2024</span>
           </div>
-          <p>Designed and backtested FX carry (hedged) strategy; data ingestion, signal design, and stress tests.</p>
+          <ul class="bullets">
+            <li>Designed and backtested a hedged FX carry strategy across regimes; integrated transaction costs and basis dynamics.</li>
+            <li>Built data ingestion & validation (FX & rates), scenario analysis and stress testing for funding & volatility spikes.</li>
+          </ul>
         </div>
+
         <div class="item">
           <div class="item-head">
-            <strong>Finlabo SIM · Quant Research</strong>
+            <strong>Finlabo SIM — Quant Research</strong>
             <span>Ancona · 2023</span>
           </div>
-          <p>Built ETF flow trackers and correlation analysis; authored research brief used by the investment team.</p>
+          <ul class="bullets">
+            <li>Developed Python algorithms to track ETF primary/secondary flows and correlation surfaces.</li>
+            <li>Authored research briefs used by the investment team for positioning and risk review.</li>
+          </ul>
         </div>
+
         <div class="item">
           <div class="item-head">
-            <strong>Imperial College London · MSc</strong>
+            <strong>Imperial College London — MSc Statistics (Statistical Finance)</strong>
             <span>London · 2025–2026</span>
           </div>
-          <p>Statistical Finance track: probability, econometrics, ML, stochastic processes. </p>
+          <ul class="bullets">
+            <li>Core: probability, time-series, econometrics, ML, stochastic processes, optimisation.</li>
+            <li>Focus: systematic strategies, market microstructure, Bayesian methods.</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- Skills -->
-    <section id="skills" class="container section">
-      <div class="section-head">
-        <h3>Skills</h3>
+    <!-- VOLUNTEERING -->
+    <section id="volunteering" class="container section">
+      <div class="section-head"><h3>Volunteering</h3></div>
+      <div class="timeline">
+        <div class="item">
+          <div class="item-head">
+            <strong>Student Mentoring & Community</strong>
+            <span>2023–present</span>
+          </div>
+          <p>Peer mentoring for quantitative coursework and interview preparation; community projects in education and public-health awareness.</p>
+        </div>
       </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="container section">
+      <div class="section-head"><h3>Skills</h3></div>
       <ul class="skills">
         <li><b>Programming:</b> Python, R, MATLAB, SQL, VBA</li>
-        <li><b>Methods:</b> statistical learning, time series, optimization, backtesting, risk modeling</li>
-        <li><b>Markets:</b> FX, rates, ETFs, equities, derivatives basics</li>
+        <li><b>Methods:</b> statistical/machine learning, time series, Bayesian methods, optimisation, backtesting, risk modelling</li>
+        <li><b>Markets:</b> FX, rates, ETFs, equities, options</li>
         <li><b>Tooling:</b> Git, Jupyter, Dash/Streamlit, Linux</li>
       </ul>
     </section>
 
-    <!-- Writing -->
+    <!-- WRITING -->
     <section id="writing" class="container section">
-      <div class="section-head">
-        <h3>Writing</h3>
-      </div>
+      <div class="section-head"><h3>Writing</h3></div>
       <ul class="list">
-        <li><a href="#">Notes on FX carry hedging</a> — assumptions, parity, and slippage.</li>
+        <li><a href="#">Notes on FX carry hedging</a> — assumptions, parity, funding and slippage.</li>
         <li><a href="#">Volatility regimes & carry risk</a> — regime switches and tails.</li>
         <li><a href="#">ETF flow anomalies</a> — when creation/redemption diverges.</li>
       </ul>
     </section>
 
-    <!-- Contact -->
+    <!-- CONTACT -->
     <section id="contact" class="container section">
-      <div class="section-head">
-        <h3>Contact</h3>
-      </div>
+      <div class="section-head"><h3>Contact</h3></div>
       <p>
         Email: <a href="mailto:you@email.com">you@email.com</a> · 
         GitHub: <a href="https://github.com/your-username">@your-username</a> · 
@@ -160,8 +220,6 @@
     <span>© <span id="y"></span> Filippo Grandoni</span>
   </footer>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
