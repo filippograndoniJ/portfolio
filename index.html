@@ -14,158 +14,33 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
-  <style>
-    :root {
-      --bg-color: #f9fafb;
-      --text-color: #1f1f1f;
-      --primary-color: #1a73e8;
-      --secondary-color: #6c757d;
-      --accent-color: #1abc9c;
-      --card-bg: #ffffff;
-      --border-color: #e2e6ea;
-    }
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-    header.header {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 1rem;
-      text-align: center;
-    }
-    .brand {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .brand img.avatar {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--primary-color);
-    }
-    h1 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin: 0;
-      color: var(--primary-color);
-    }
-    .subtitle {
-      color: var(--secondary-color);
-      font-size: 0.95rem;
-    }
-    .nav {
-      margin-top: 1rem;
-    }
-    .nav a {
-      margin: 0 0.7rem;
-      text-decoration: none;
-      color: var(--primary-color);
-      font-weight: 600;
-      transition: color 0.2s ease;
-    }
-    .nav a:hover {
-      color: var(--accent-color);
-    }
-    .btn {
-      background: var(--primary-color);
-      color: white;
-      padding: 0.6rem 1.2rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      display: inline-block;
-      margin: 0.4rem;
-      transition: background 0.2s ease;
-    }
-    .btn:hover { background: #0c5adf; }
-    .btn.ghost {
-      background: transparent;
-      color: var(--primary-color);
-      border: 1.5px solid var(--primary-color);
-    }
-    .btn.ghost:hover {
-      background: var(--primary-color);
-      color: white;
-    }
-    section.section {
-      margin-top: 3rem;
-      text-align: left;
-    }
-    .section-head h3 {
-      color: var(--primary-color);
-      margin-bottom: 0.5rem;
-      font-size: 1.4rem;
-    }
-    .grid {
-      display: grid;
-      gap: 1.5rem;
-    }
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      padding: 1.5rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-    }
-    .timeline .item {
-      background: var(--card-bg);
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border-left: 4px solid var(--primary-color);
-      border-radius: 6px;
-    }
-    .item-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 0.5rem;
-    }
-    footer.footer {
-      margin-top: 2rem;
-      border-top: 1px solid var(--border-color);
-      padding-top: 1rem;
-      color: var(--secondary-color);
-    }
-  </style>
 </head>
 <body>
+  <!-- Header -->
   <header class="container header">
     <div class="brand">
       <img src="assets/avatar.jpg" alt="Profile photo" class="avatar" />
       <h1>Filippo Grandoni</h1>
       <p class="subtitle">MSc Statistics (Statistical Finance) · Imperial College London</p>
     </div>
+
     <nav class="nav">
-      <a href="#practical">Practical</a>
-      <a href="#theoretical">Theoretical</a>
-      <a href="#experience">Working Experience</a>
-      <a href="#volunteering">Volunteering</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact" class="btn">Contact</a>
+      <a href="#practical" class="nav-link">Practical</a>
+      <a href="#theoretical" class="nav-link">Theoretical</a>
+      <a href="#experience" class="nav-link">Working Experience</a>
+      <a href="#volunteering" class="nav-link">Volunteering</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#contact" class="btn btn-contact">Contact</a>
     </nav>
   </header>
 
   <main>
+    <!-- Hero -->
     <section class="container hero">
-      <h2 style="font-size:2rem; font-weight:700; color:var(--text-color);">Turning data into insight.</h2>
-      <p style="color:var(--secondary-color); max-width:700px; margin:0 auto;">
-        Focused on statistical learning, market structure, and systematic approaches — with a clean, structured, and practical mindset.
+      <h2 class="hero-title">Turning data into insight.</h2>
+      <p class="hero-sub">
+        Focused on statistical learning, market structure, and systematic approaches — with a clean,
+        structured, and practical mindset.
       </p>
       <div class="cta">
         <a class="btn" href="assets/CV.pdf" target="_blank" rel="noopener">Download CV</a>
@@ -173,81 +48,175 @@
       </div>
     </section>
 
-    <!-- WORK EXPERIENCE -->
+    <!-- Practical Projects -->
+    <section id="practical" class="container section">
+      <div class="section-head">
+        <h3>Practical Projects</h3>
+        <p class="section-sub">Production-minded work, data pipelines, backtests.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <h4>FX Carry (Hedged) Strategy — UBS</h4>
+          <p>
+            End-to-end Python backtest of forward-hedged carry: robust data ingest (FX & rates),
+            funding-basis handling, regime filters, and transaction costs. Stable Sharpe especially
+            in low-volatility environments.
+          </p>
+          <ul class="tags"><li>Python</li><li>Pandas</li><li>Backtesting</li><li>FX</li></ul>
+          <div class="links">
+            <a href="#" aria-label="Repo">Repo</a>
+            <a href="#" aria-label="Write-up">Write-up</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h4>ETF Flow Tracker — Finlabo SIM</h4>
+          <p>
+            Automated pipeline to infer primary/secondary flows and correlation surfaces with
+            anomaly alerts for liquidity/pressure diagnostics.
+          </p>
+          <ul class="tags"><li>Python</li><li>SQL</li><li>Dash</li></ul>
+          <div class="links">
+            <a href="#" aria-label="Repo">Repo</a>
+            <a href="#" aria-label="Demo">Demo</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h4>Volatility Regime Switcher</h4>
+          <p>
+            Markov regime model on realized/IV spread that rotates carry vs. convexity, improving
+            downside vs. naïve carry allocations.
+          </p>
+          <ul class="tags"><li>R</li><li>Time Series</li><li>HMM</li></ul>
+          <div class="links">
+            <a href="#" aria-label="Repo">Repo</a>
+            <a href="#" aria-label="Notes">Notes</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Theoretical Projects -->
+    <section id="theoretical" class="container section">
+      <div class="section-head">
+        <h3>Theoretical Projects</h3>
+        <p class="section-sub">Papers, methods, and deeper dives.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <h4>Master’s Thesis — Fairness & Predictive Modelling</h4>
+          <p>
+            Empirical study on model performance, fairness trade-offs, and robust validation under
+            distribution shift. Includes reproducible code and diagnostics.
+          </p>
+          <ul class="tags"><li>ML</li><li>Fairness</li><li>Validation</li></ul>
+          <div class="links">
+            <a href="assets/Final_Dissertation-2.pdf" target="_blank">Thesis (PDF)</a>
+            <a href="assets/Thesis_Fair_presentation___Grandoni.pdf" target="_blank">Slides</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h4>Notes on Bayesian & EM for Censored Data</h4>
+          <p>
+            Derivations and implementation notes for EM with exponential-family models under censoring; HPD intervals for gamma posteriors.
+          </p>
+          <ul class="tags"><li>EM</li><li>Bayesian</li><li>Censoring</li></ul>
+          <div class="links">
+            <a href="#" aria-label="Notes">Notes</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Working Experience -->
     <section id="experience" class="container section">
       <div class="section-head"><h3>Working Experience</h3></div>
+
       <div class="timeline">
         <div class="item">
           <div class="item-head">
             <strong>UBS — Quant Project (FX)</strong>
             <span>Zurich · 2024</span>
           </div>
-          <ul>
-            <li>Designed and backtested a hedged FX carry strategy across regimes; integrated transaction costs and basis dynamics.</li>
-            <li>Built data ingestion & validation (FX & rates), scenario analysis and stress testing for funding & volatility spikes.</li>
+          <ul class="bullets">
+            <li>Built a forward-hedged FX carry strategy with basis-aware carry and regime filters.</li>
+            <li>Implemented data validation, transaction-cost modelling, and stress tests for funding/vol spikes.</li>
+            <li>Delivered a clean research package (code + memo) used for internal discussion.</li>
           </ul>
         </div>
+
         <div class="item">
           <div class="item-head">
             <strong>Finlabo SIM — Quant Research</strong>
             <span>Ancona · 2023</span>
           </div>
-          <ul>
-            <li>Developed Python algorithms to track ETF primary/secondary flows and correlation surfaces.</li>
-            <li>Authored research briefs used by the investment team for positioning and risk review.</li>
+          <ul class="bullets">
+            <li>Automated ETF flow tracking and correlation analysis with dashboards for monitoring.</li>
+            <li>Produced research briefs that informed positioning and liquidity management.</li>
           </ul>
         </div>
+
         <div class="item">
           <div class="item-head">
             <strong>Imperial College London — MSc Statistics (Statistical Finance)</strong>
             <span>London · 2025–2026</span>
           </div>
-          <ul>
+          <ul class="bullets">
             <li>Core: probability, time-series, econometrics, ML, stochastic processes, optimisation.</li>
-            <li>Focus: systematic strategies, market microstructure, Bayesian methods.</li>
+            <li>Focus: market microstructure, systematic strategies, Bayesian methods.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- VOLUNTEERING -->
+    <!-- Volunteering -->
     <section id="volunteering" class="container section">
       <div class="section-head"><h3>Volunteering</h3></div>
+
       <div class="timeline">
         <div class="item">
           <div class="item-head">
             <strong>Social Farm Montepacini</strong>
             <span>Fermo, Italy · 05/2022 – 08/2022</span>
           </div>
-          <p>Special needs children educator. Involved in the entertainment of children and organized activities resulting in a social inclusion project for children.</p>
+          <p class="tight">
+            Special-needs children educator. Designed and ran inclusive activities as part of a social integration programme.
+          </p>
         </div>
+
         <div class="item">
           <div class="item-head">
             <strong>Idola Music srls</strong>
             <span>Fermo, Italy · 09/2016 – 09/2020</span>
           </div>
-          <p>Participated in the organization of live musical events and community engagement initiatives.</p>
+          <p class="tight">
+            Supported the organisation of live music events (logistics, onsite coordination, stakeholder liaison).
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- SKILLS -->
+    <!-- Skills -->
     <section id="skills" class="container section">
       <div class="section-head"><h3>Skills</h3></div>
       <ul class="skills">
         <li><b>Programming:</b> Python, R, MATLAB, SQL, VBA</li>
-        <li><b>Methods:</b> statistical/machine learning, time series, Bayesian methods, optimisation, backtesting, risk modelling</li>
+        <li><b>Methods:</b> statistical & machine learning, time-series, Bayesian methods, optimisation, backtesting, risk modelling</li>
         <li><b>Markets:</b> FX, rates, ETFs, equities, options</li>
         <li><b>Tooling:</b> Git, Jupyter, Dash/Streamlit, Linux</li>
       </ul>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="container section">
-      <div class="section-head"><h3>Contact</h3></div>
+    <!-- Contact (wide pill anchor target) -->
+    <section id="contact" class="container section contact-block">
+      <h3>Contacts</h3>
       <p>
-        Email: <a href="mailto:filippo@grandoni.it">filippo@grandoni.it</a> · 
-        GitHub: <a href="https://github.com/filippograndoniJ">@filippograndoniJ</a> · 
+        Email: <a href="mailto:filippo@grandoni.it">filippo@grandoni.it</a> ·
+        GitHub: <a href="https://github.com/filippograndoniJ">@filippograndoniJ</a> ·
         LinkedIn: <a href="https://linkedin.com/in/your-handle">/in/your-handle</a>
       </p>
     </section>
@@ -257,6 +226,8 @@
     <span>© <span id="y"></span> Filippo Grandoni</span>
   </footer>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
