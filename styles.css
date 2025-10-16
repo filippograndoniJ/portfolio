@@ -20,7 +20,7 @@ body {
   scroll-behavior: smooth;
 }
 
-/* HEADER */
+/* HEADER & NAVIGATION */
 .header {
   padding: 3rem 1rem 2rem;
   background: linear-gradient(180deg, var(--primary-light), var(--bg));
@@ -49,13 +49,13 @@ body {
   color: var(--muted);
   margin: 0.5rem 0 1.5rem;
 }
-header nav {
+nav {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
 }
-header nav a {
+nav a {
   text-decoration: none;
   color: var(--primary);
   font-weight: 600;
@@ -63,13 +63,29 @@ header nav a {
   border-radius: 25px;
   transition: background 0.3s, color 0.3s;
 }
-header nav a:hover {
+nav a:hover {
   background: var(--primary);
   color: white;
 }
-header nav a.cta {
+nav a.cta {
   background: var(--primary);
   color: white;
+}
+.download-cv {
+  margin-top: 1.2rem;
+}
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background: var(--primary);
+  color: white;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+.btn:hover {
+  background: var(--accent);
 }
 
 /* MAIN & SECTIONS */
@@ -101,7 +117,7 @@ main {
   margin-bottom: 2rem;
 }
 
-/* GRID CARDS */
+/* GRID / CARDS */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -137,13 +153,22 @@ main {
   font-size: 0.9rem;
 }
 .links a {
-  margin-right: 1rem;
-  color: var(--accent);
+  margin-right: 0.8rem;
+  color: var(--primary);
+  font-size: 0.9rem;
   text-decoration: none;
-  font-weight: 600;
+  transition: color 0.3s;
 }
 .links a:hover {
-  color: var(--primary);
+  color: var(--accent);
+}
+
+/* META TEXT */
+.meta {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 0.6rem;
 }
 
 /* TIMELINE / EXPERIENCE */
@@ -202,6 +227,7 @@ main {
   color: var(--accent);
   text-decoration: none;
   font-weight: 600;
+  transition: color 0.3s;
 }
 .contact-block a:hover {
   color: var(--primary);
@@ -213,4 +239,5 @@ main {
   background: var(--primary-light);
   color: var(--muted);
   font-size: 0.9rem;
+  text-align: center;
 }
