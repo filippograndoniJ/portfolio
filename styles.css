@@ -7,9 +7,9 @@
   --muted: #666666;
 }
 
-* {
-  box-sizing: border-box;
-}
+/* Global reset & base */
+* { box-sizing: border-box; }
+
 body {
   margin: 0;
   padding: 0;
@@ -20,7 +20,7 @@ body {
   scroll-behavior: smooth;
 }
 
-/* HEADER & NAVIGATION */
+/* ===== HEADER & NAVIGATION ===== */
 .header {
   padding: 3rem 1rem 2rem;
   background: linear-gradient(180deg, var(--primary-light), var(--bg));
@@ -49,6 +49,7 @@ body {
   color: var(--muted);
   margin: 0.5rem 0 1.5rem;
 }
+
 nav {
   display: flex;
   justify-content: center;
@@ -65,48 +66,48 @@ nav a {
 }
 nav a:hover {
   background: var(--primary);
-  color: white;
+  color: #fff;
 }
 nav a.cta {
   background: var(--primary);
-  color: white;
+  color: #fff;
 }
-.download-cv {
-  margin-top: 1.2rem;
-}
+
+.download-cv { margin-top: 1.2rem; }
+
 .btn {
   display: inline-block;
   padding: 0.6rem 1.2rem;
   background: var(--primary);
-  color: white;
+  color: #fff;
   border-radius: 25px;
   text-decoration: none;
   font-weight: 600;
   transition: background 0.3s;
 }
-.btn:hover {
-  background: var(--accent);
-}
+.btn:hover { background: var(--accent); }
 
-/* MAIN & SECTIONS */
+/* ===== MAIN & SECTIONS ===== */
 main {
   margin: 0 auto;
   max-width: 960px;
 }
+
+/* More vertical space so the last sections don't overlap in view */
 .section {
-  padding: 4rem 1rem;
+  padding: 6rem 1rem;                 /* increased from 4rem */
   border-bottom: 1px solid #eee;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
+  scroll-margin-top: 96px;            /* nicer anchor landing under the header */
 }
 .section.visible {
   opacity: 1;
   transform: translateY(0);
 }
-.section:last-of-type {
-  border-bottom: none;
-}
+.section:last-of-type { border-bottom: none; }
+
 .section h3 {
   font-size: 2.2rem;
   color: var(--primary);
@@ -117,14 +118,18 @@ main {
   margin-bottom: 2rem;
 }
 
-/* GRID / CARDS */
+/* Give the very last two sections even more breathing room */
+#skills { padding-bottom: 6.5rem; }
+#contact { padding: 7.5rem 1rem; }
+
+/* ===== GRID / CARDS ===== */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.5rem;
 }
 .card {
-  background: white;
+  background: #fff;
   padding: 1.8rem;
   border-radius: 15px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -134,9 +139,8 @@ main {
   margin-top: 0;
   color: var(--primary);
 }
-.card p {
-  color: #333;
-}
+.card p { color: #333; }
+
 .tags {
   list-style: none;
   padding: 0;
@@ -152,18 +156,26 @@ main {
   border-radius: 12px;
   font-size: 0.9rem;
 }
+
+.links { margin-top: 1rem; }
 .links a {
-  margin-right: 0.8rem;
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  background: var(--primary-light);
   color: var(--primary);
-  font-size: 0.9rem;
+  border-radius: 12px;
   text-decoration: none;
-  transition: color 0.3s;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background 0.3s, color 0.3s;
+  margin-right: 0.4rem;
 }
 .links a:hover {
-  color: var(--accent);
+  background: var(--primary);
+  color: #fff;
 }
 
-/* META TEXT */
+/* Meta text (dates, locations) */
 .meta {
   display: block;
   font-size: 0.9rem;
@@ -171,7 +183,7 @@ main {
   margin-bottom: 0.6rem;
 }
 
-/* TIMELINE / EXPERIENCE */
+/* ===== TIMELINE / EXPERIENCE ===== */
 .timeline .item {
   margin-bottom: 2rem;
   text-align: left;
@@ -182,9 +194,7 @@ main {
   align-items: baseline;
   margin-bottom: 0.5rem;
 }
-.timeline strong {
-  color: var(--primary);
-}
+.timeline strong { color: var(--primary); }
 .timeline span {
   color: var(--muted);
   font-size: 0.9rem;
@@ -200,7 +210,60 @@ main {
   color: #333;
 }
 
-/* SKILLS */
+/* ===== SKILLS (reworked with grid & chips) ===== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+@media (min-width: 820px) {
+  .skills-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.skills-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  text-align: left;
+  padding: 1.6rem;
+}
+.skills-card h4 {
+  margin: 0 0 0.75rem 0;
+  color: var(--primary);
+}
+.skills-card .mt { margin-top: 1.25rem; }
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.skills-list li {
+  margin: 0.4rem 0;
+  color: #333;
+}
+.skills-list b { color: var(--primary); }
+
+.chiplist {
+  list-style: none;
+  padding: 0;
+  margin: 0.6rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.chiplist li {
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Legacy simple skills list (kept for compatibility; not used by new layout) */
 .skills {
   list-style: none;
   padding: 0;
@@ -211,14 +274,69 @@ main {
   margin-left: auto;
   margin-right: auto;
 }
-.skills li {
-  margin-bottom: 0.8rem;
+.skills li { margin-bottom: 0.8rem; }
+.skills b { color: var(--primary); }
+
+/* ===== CONTACT (card grid with icons) ===== */
+.contact-section {
+  background:
+    radial-gradient(80% 120% at 50% -10%, var(--primary-light), transparent 60%),
+    linear-gradient(180deg, rgba(30,144,255,0.06), transparent 40%);
+  border-radius: 18px;
 }
-.skills b {
-  color: var(--primary);
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+@media (min-width: 720px) {
+  .contact-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
-/* CONTACT */
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  text-decoration: none;
+  background: #fff;
+  color: var(--text);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.contact-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  background: #fdfdfd;
+}
+.contact-card .icon {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--primary-light);
+  color: var(--primary);
+}
+.contact-card .contact-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.contact-card strong {
+  font-size: 0.95rem;
+  color: var(--primary);
+}
+.contact-card span {
+  font-size: 0.92rem;
+  color: #333;
+}
+
+/* Keep older contact styles for backward compatibility */
 .contact-block h3 {
   color: var(--primary);
   margin-bottom: 1rem;
@@ -229,11 +347,9 @@ main {
   font-weight: 600;
   transition: color 0.3s;
 }
-.contact-block a:hover {
-  color: var(--primary);
-}
+.contact-block a:hover { color: var(--primary); }
 
-/* FOOTER */
+/* ===== FOOTER ===== */
 .footer {
   padding: 1.5rem 1rem;
   background: var(--primary-light);
