@@ -370,3 +370,59 @@ main {
   text-align: center;
   margin-top: 0.5rem; /* tiny gap after contact */
 }
+
+/* ========== SIDE TRACKER (scroll-spy) ========== */
+.side-tracker {
+  position: fixed;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 50;
+}
+.tracker-link {
+  --size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 600;
+}
+.tracker-link::before {
+  content: "";
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: #dbeafe;
+  outline: 2px solid transparent;
+  transition: background .2s, transform .2s, outline-color .2s;
+}
+.tracker-link span {
+  background: #ffffff;
+  color: var(--text);
+  border: 1px solid #eef2f7;
+  padding: 4px 8px;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+  opacity: 0;
+  transform: translateX(6px);
+  transition: opacity .2s, transform .2s;
+  pointer-events: none;
+}
+.tracker-link:hover span,
+.tracker-link:focus-visible span { opacity: 1; transform: translateX(0); }
+.tracker-link.active { color: var(--primary); }
+.tracker-link.active::before {
+  background: var(--primary);
+  transform: scale(1.25);
+  outline-color: rgba(30,144,255,.25);
+}
+.tracker-link.active span { opacity: 1; transform: translateX(0); }
+
+/* Hide on small screens */
+@media (max-width: 960px) {
+  .side-tracker { display: none; }
+}
