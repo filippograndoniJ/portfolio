@@ -1,5 +1,6 @@
 :root {
   --primary: #1e90ff;
+  --primary-dark: #0066cc;
   --primary-light: #e6f2ff;
   --accent: #ff7f50;
   --text: #1a1a1a;
@@ -22,7 +23,7 @@ body {
 
 /* ========== HEADER & NAV ========== */
 .header {
-  padding: 3rem 1rem 3.75rem; /* increased bottom padding for more space under header */
+  padding: 3rem 1rem 3.75rem;
   background: linear-gradient(180deg, var(--primary-light), var(--bg));
 }
 .header .top {
@@ -55,6 +56,7 @@ nav {
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
+  margin-top: 2rem;
 }
 nav a {
   text-decoration: none;
@@ -94,12 +96,12 @@ main {
 }
 
 .section {
-  padding: 7rem 1rem;                 /* generous spacing */
+  padding: 7rem 1rem;
   border-bottom: 1px solid #eee;
   opacity: 0;
   transform: translateY(22px);
   transition: opacity 0.6s ease, transform 0.6s ease;
-  scroll-margin-top: 110px;           /* better anchor landing */
+  scroll-margin-top: 110px;
 }
 .section.visible {
   opacity: 1;
@@ -119,7 +121,7 @@ main {
 
 /* extra breathing room for the last sections */
 #skills { padding-bottom: 8rem; }
-#contact { padding: 10rem 1rem 11rem; }  /* more space before footer */
+#contact { padding: 10rem 1rem 11rem; }
 
 /* ========== GRID / CARDS ========== */
 .grid {
@@ -133,12 +135,19 @@ main {
   border-radius: 16px;
   box-shadow: 0 2px 9px rgba(0,0,0,0.08);
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 360px;
 }
 .card h4 {
   margin-top: 0;
   color: var(--primary);
 }
-.card p { color: #333; }
+.card p { 
+  color: #333; 
+  flex-grow: 1;
+}
 
 .tags {
   list-style: none;
@@ -157,25 +166,35 @@ main {
   font-weight: 600;
 }
 
-.links { margin-top: 1rem; }
-.links a {
-  display: inline-block;
-  padding: 0.45rem 0.85rem;
-  background: var(--primary-light);
-  color: var(--primary);
-  border-radius: 12px;
-  text-decoration: none;
-  font-size: 0.92rem;
-  font-weight: 700;
-  transition: background 0.3s, color 0.3s;
-  margin-right: 0.45rem;
+.links {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1rem;
 }
-.links a:hover {
+.bottom-link {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.details-btn {
+  display: inline-block;
   background: var(--primary);
+  color: #fff;
+  padding: 0.5rem 0.9rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+.details-btn:hover {
+  background: var(--primary-dark);
   color: #fff;
 }
 
-/* meta text (dates, locations) */
+/* meta text */
 .meta {
   display: block;
   font-size: 0.9rem;
@@ -210,7 +229,7 @@ main {
   color: #333;
 }
 
-/* ========== SKILLS (advanced layout) ========== */
+/* ========== SKILLS GRID ========== */
 .skills-grid-advanced {
   display: grid;
   grid-template-columns: 1fr;
@@ -220,10 +239,9 @@ main {
 }
 @media (min-width: 860px) {
   .skills-grid-advanced {
-    grid-template-columns: 1.2fr 0.8fr 1fr; /* Technical wider */
+    grid-template-columns: 1.2fr 0.8fr 1fr;
   }
 }
-
 .skills-card {
   background: #fff;
   border-radius: 16px;
@@ -248,7 +266,7 @@ main {
 }
 .skill-bullets b { color: var(--primary); }
 
-/* language list (plain bullets) */
+/* languages */
 .lang-list {
   list-style: disc;
   padding-left: 1.4rem;
@@ -257,7 +275,7 @@ main {
 }
 .lang-list li { margin: 0.25rem 0; }
 
-/* chips (interests / highlights) */
+/* chips */
 .chiplist {
   list-style: none;
   padding: 0;
@@ -275,7 +293,7 @@ main {
   font-weight: 600;
 }
 
-/* legacy simple skills list (kept for compatibility if used elsewhere) */
+/* legacy skills */
 .skills {
   list-style: none;
   padding: 0;
@@ -289,7 +307,7 @@ main {
 .skills li { margin-bottom: 0.8rem; }
 .skills b { color: var(--primary); }
 
-/* ========== CONTACT (cards with icons) ========== */
+/* ========== CONTACT ========== */
 .contact-section {
   background:
     radial-gradient(80% 120% at 50% -10%, var(--primary-light), transparent 60%),
@@ -348,7 +366,7 @@ main {
   color: #333;
 }
 
-/* backward compatibility for old contact markup (if present) */
+/* old contact block */
 .contact-block h3 {
   color: var(--primary);
   margin-bottom: 1rem;
@@ -368,10 +386,10 @@ main {
   color: var(--muted);
   font-size: 0.9rem;
   text-align: center;
-  margin-top: 0.5rem; /* tiny gap after contact */
+  margin-top: 0.5rem;
 }
 
-/* ========== BADGES (for competitions) ========== */
+/* ========== BADGES ========== */
 .badge {
   display: inline-block;
   margin-left: 8px;
@@ -386,28 +404,24 @@ main {
   vertical-align: middle;
   border: 1px solid #e5e7eb;
 }
-
 .badge.gold {
   background: #fff7e6;
   color: #b45309;
   border-color: #f6e3c4;
   box-shadow: 0 0 0 2px rgba(255,184,0,0.08) inset;
 }
-
 .badge.success {
   background: #eafaf1;
   color: #166534;
   border-color: #cceedd;
   box-shadow: 0 0 0 2px rgba(16,185,129,0.08) inset;
 }
-
 .badge.info {
   background: #e6f2ff;
   color: #1e40af;
   border-color: #d0e4ff;
   box-shadow: 0 0 0 2px rgba(30,144,255,0.08) inset;
 }
-
 .badge.grade {
   background: #f0f9ff;
   color: #0c4a6e;
