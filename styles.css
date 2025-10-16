@@ -1,11 +1,12 @@
 :root {
   --primary: #1e90ff;
+  --primary-dark: #005bb5;
   --primary-light: #e6f2ff;
   --accent: #ff7f50;
   --text: #1a1a1a;
   --bg: #ffffff;
-  --muted: #666666;       /* base muted */
-  --muted-soft: #8a8f98;  /* sottotitoli/meta più chiari */
+  --muted: #666666;        /* testo secondario */
+  --muted-soft: #8a8f98;   /* meta/sottotitoli più chiari */
 }
 
 /* ========== GLOBAL ========== */
@@ -31,7 +32,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  padding-bottom: 2rem; /* extra space above nav */
+  padding-bottom: 2rem; /* più spazio sopra la nav */
 }
 .avatar {
   width: 100px;
@@ -67,17 +68,10 @@ nav a {
   border-radius: 25px;
   transition: background 0.3s, color 0.3s;
 }
-nav a:hover {
-  background: var(--primary);
-  color: #fff;
-}
-nav a.cta {
-  background: var(--primary);
-  color: #fff;
-}
+nav a:hover { background: var(--primary); color: #fff; }
+nav a.cta  { background: var(--primary); color: #fff; }
 
 .download-cv { margin-top: 1.2rem; }
-
 .btn {
   display: inline-block;
   padding: 0.6rem 1.2rem;
@@ -91,10 +85,7 @@ nav a.cta {
 .btn:hover { background: var(--accent); }
 
 /* ========== MAIN & SECTIONS ========== */
-main {
-  margin: 0 auto;
-  max-width: 960px;
-}
+main { margin: 0 auto; max-width: 960px; }
 
 .section {
   padding: 7rem 1rem;
@@ -112,10 +103,7 @@ main {
   color: var(--primary);
   margin-bottom: 0.6rem;
 }
-.section .section-sub {
-  color: var(--muted);
-  margin-bottom: 2.2rem;
-}
+.section .section-sub { color: var(--muted); margin-bottom: 2.2rem; }
 
 #skills { padding-bottom: 8rem; }
 #contact { padding: 10rem 1rem 11rem; }
@@ -138,43 +126,34 @@ main {
   min-height: 320px;
 }
 
-/* TITOLI DELLE CARD – leggermente più grandi */
+/* TITOLI DELLE CARD (tutte le sezioni) */
 .card h4 {
-  margin-top: 0;
-  margin-bottom: 0.4rem;
+  margin: 0 0 0.45rem 0;
   color: var(--primary);
-  font-size: 1.35rem;        /* ↑ più grande dei default */
-  line-height: 1.25;
   font-weight: 800;
+  font-size: 1.35rem;   /* più grande ma sotto i titoli di sezione */
+  line-height: 1.25;
 }
 @media (min-width: 900px) {
-  .card h4 { font-size: 1.4rem; }
+  .card h4 { font-size: 1.45rem; }
 }
 
-.card p {
-  color: #333;
-  flex-grow: 1;
-  margin-bottom: 1.5rem;
-}
-
-/* SOTTOTITOLI/META – grigi chiari e leggibili */
+/* SOTTOTITOLI/META (date, location, “Bachelor Dissertation”, “Under NDA”, ecc.) */
 .meta {
   display: block;
   font-size: 0.95rem;
-  color: var(--muted-soft);  /* più chiaro del testo principale */
+  color: var(--muted-soft);
   margin-bottom: 0.6rem;
   letter-spacing: 0.1px;
   font-weight: 500;
 }
 
+.card p { color: #333; flex-grow: 1; margin-bottom: 1.5rem; }
+
 /* TAGS */
 .tags {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0 0.2rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  list-style: none; padding: 0; margin: 1rem 0 0.2rem;
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
 }
 .tags li {
   background: var(--primary-light);
@@ -189,11 +168,11 @@ main {
 .links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.7rem;           /* più distanti tra loro */
+  gap: 0.7rem;              /* più distanti tra loro */
   justify-content: flex-start;
-  margin-top: auto;      /* sempre giù */
+  margin-top: auto;         /* resta in basso */
 }
-.links .details-btn {
+.details-btn {
   display: inline-block;
   background: var(--primary);
   color: #fff;
@@ -204,7 +183,7 @@ main {
   text-decoration: none;
   transition: background 0.25s ease, transform 0.2s ease;
 }
-.links .details-btn:hover { background: #005bb5; transform: translateY(-2px); }
+.details-btn:hover { background: var(--primary-dark); transform: translateY(-2px); }
 
 /* ========== BADGES (Competitions) ========== */
 .badge {
@@ -232,9 +211,9 @@ main {
   display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.6rem;
 }
 .timeline strong { color: var(--primary); }
-.timeline span { color: var(--muted-soft); font-size: 0.95rem; }
+.timeline span   { color: var(--muted-soft); font-size: 0.95rem; } /* sottotitoli timeline coerenti */
 .bullets { list-style: disc; padding-left: 1.5rem; color: #333; margin: 0; }
-.tight { margin: 0.6rem 0 0; color: #333; }
+.tight   { margin: 0.6rem 0 0; color: #333; }
 
 /* ========== SKILLS GRID ========== */
 .skills-grid-advanced {
@@ -259,7 +238,7 @@ main {
 
 .skill-bullets { list-style: none; padding: 0; margin: 0 0 0.8rem 0; }
 .skill-bullets li { margin: 0.45rem 0; color: #333; }
-.skill-bullets b { color: var(--primary); }
+.skill-bullets b  { color: var(--primary); }
 
 .lang-list { list-style: disc; padding-left: 1.4rem; margin: 0 0 0.8rem 0; text-align: left; }
 .lang-list li { margin: 0.25rem 0; }
@@ -301,11 +280,11 @@ main {
 }
 .contact-card .contact-text { display: flex; flex-direction: column; text-align: left; }
 .contact-card strong { font-size: 1rem; color: var(--primary); }
-.contact-card span { font-size: 0.94rem; color: #333; }
+.contact-card span   { font-size: 0.94rem; color: #333; }
 
-/* legacy contact */
+/* supporto markup legacy */
 .contact-block h3 { color: var(--primary); margin-bottom: 1rem; }
-.contact-block a { color: var(--accent); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+.contact-block a  { color: var(--accent); text-decoration: none; font-weight: 600; transition: color 0.3s; }
 .contact-block a:hover { color: var(--primary); }
 
 /* ========== FOOTER ========== */
